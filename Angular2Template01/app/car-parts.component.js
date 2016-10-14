@@ -1,7 +1,7 @@
 // This contains our list of car parts.
 // Mind blowing stuff here..note the Component is scoped but the css is now also scoped as well. So we could use the same css Price class
 //      in multiple Components and it would only be scoped to its local use.  Crazy - kind of cool.  Basically it is being treated as a 
-//      property.  Run the app and then do a view source on the html to see 'ghost angular' tags appear...which explains how this is working.
+//      property.  Run the app and then do a F12 - then element selector to view source on the html to see 'ghost angular' tags appear...which explains how this is working.
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13,34 +13,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var mocks_1 = require('./mocks');
 var CarPartsComponent = (function () {
     function CarPartsComponent() {
-        this.carParts = [{
-                "id": 1,
-                "name": "Super Tires",
-                "description": "These tires are the very best",
-                "inStock": 5,
-                "price": 4.99,
-                "today": new Date('2016-10-01T12:00:00')
-            },
-            {
-                "id": 2,
-                "name": "Reinforced Shocks",
-                "description": "Shocks made from kryptonite",
-                "inStock": 4,
-                "price": 9.99,
-                "today": new Date('2016-10-05T12:00:00')
-            },
-            {
-                "id": 3,
-                "name": "Padded Seats",
-                "description": "Super soft seats for a smooth ride",
-                "inStock": 0,
-                "price": 24.99,
-                "today": new Date('2016-10-10T12:00:00')
-            }];
         this.showDate = Date.now();
     }
+    // ngOnInit is invoked after the component is constructed and is the best place to initialize property values.
+    //   We could have done this in the constructor, but that'd be harder to test.
+    CarPartsComponent.prototype.ngOnInit = function () {
+        this.carParts = mocks_1.CARPARTS;
+    };
     CarPartsComponent.prototype.totalCarParts = function () {
         var sum = 0;
         for (var _i = 0, _a = this.carParts; _i < _a.length; _i++) {

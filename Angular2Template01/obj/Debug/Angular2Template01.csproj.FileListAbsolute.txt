@@ -15,6 +15,7 @@ C:\My.Git\Angular2Template01\Angular2Template01\bin\Angular2Template01.dll
 C:\My.Git\Angular2Template01\Angular2Template01\bin\Angular2Template01.pdb
 C:\My.Git\Angular2Template01\Angular2Template01\obj\Debug\Angular2Template01.dll
 C:\My.Git\Angular2Template01\Angular2Template01\obj\Debug\Angular2Template01.pdb
+C:\Tim\My.Git\Angular2Template01\Angular2Template01\obj\Debug\Angular2Template01.csprojResolveAssemblyReference.cache
 C:\Tim\My.Git\Angular2Template01\Angular2Template01\bin\roslyn\csc.exe
 C:\Tim\My.Git\Angular2Template01\Angular2Template01\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Tim\My.Git\Angular2Template01\Angular2Template01\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll

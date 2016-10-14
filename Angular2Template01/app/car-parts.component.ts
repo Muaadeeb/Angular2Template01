@@ -4,6 +4,9 @@
 //      property.  Run the app and then do a F12 - then element selector to view source on the html to see 'ghost angular' tags appear...which explains how this is working.
 
 import { Component } from '@angular/core';
+import { CarPart } from './car-part';
+import { CARPARTS } from './mocks';
+
 @Component({
     selector: 'car-parts',
     templateUrl: 'app/car-parts.component.html',
@@ -33,31 +36,15 @@ import { Component } from '@angular/core';
 })
 
 // export is a keyword that tells angular this class can be used as an import somewhere else.
+// the CarPart[] tells typeScript to treat this like an array of the model CarPart which means it now has active type-checking/validation.
 export class CarPartsComponent {
-    carParts = [{
-        "id": 1,
-        "name": "Super Tires",
-        "description": "These tires are the very best",
-        "inStock": 5,
-        "price": 4.99,
-        "today": new Date('2016-10-01T12:00:00')
-    },
-        {
-            "id": 2,
-            "name": "Reinforced Shocks",
-            "description": "Shocks made from kryptonite",
-            "inStock": 4,
-            "price": 9.99,
-            "today": new Date('2016-10-05T12:00:00')
-        },
-        {
-            "id": 3,
-            "name": "Padded Seats",
-            "description": "Super soft seats for a smooth ride",
-            "inStock": 0,
-            "price": 24.99,
-            "today": new Date('2016-10-10T12:00:00')
-        }];
+    carParts: CarPart[];
+
+    // ngOnInit is invoked after the component is constructed and is the best place to initialize property values.
+    //   We could have done this in the constructor, but that'd be harder to test.
+    ngOnInit() {
+        this.carParts = CARPARTS;
+    }
     totalCarParts() {
         let sum = 0;
 
