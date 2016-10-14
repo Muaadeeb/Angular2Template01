@@ -1,4 +1,6 @@
-﻿import { Component } from '@angular/core';
+﻿// This component contains our page header.
+
+import { Component } from '@angular/core';
 @Component({
     selector: 'my-app',
     template: `<h1>{{title}}</h1>
@@ -16,6 +18,7 @@
         </ul>`
 })
 
+// export is a keyword that tells angular this class can be used as an import somewhere else.
 export class AppComponent {
     title = 'Ultra Racing';
     carParts = [{
