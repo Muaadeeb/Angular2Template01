@@ -1,4 +1,3 @@
-// This component contains our page header.
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9,20 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var mocks_1 = require('./mocks');
 var core_1 = require('@angular/core');
-//import { RacingDataService } from './racing-data.service';
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Ultra Racing';
+var RacingDataService = (function () {
+    function RacingDataService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "<h1>{{title}}</h1>\n        <car-parts></car-parts>" //,
-        }), 
+    RacingDataService.prototype.getCarParts = function () {
+        return mocks_1.CARPARTS;
+    };
+    RacingDataService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], RacingDataService);
+    return RacingDataService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.RacingDataService = RacingDataService;
+//# sourceMappingURL=racing-data.service.js.map

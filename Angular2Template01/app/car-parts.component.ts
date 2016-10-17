@@ -6,33 +6,12 @@
 import { Component } from '@angular/core';
 import { CarPart } from './car-part';
 import { CARPARTS } from './mocks';
+//import { RacingDataService } from './racing-data.service';
 
 @Component({
     selector: 'car-parts',
     templateUrl: 'app/car-parts.component.html',
     styleUrls: ['app/car-parts.component.css']
-    //template: `
-        //<p>There are {{totalCarParts()}} total parts in stock.</p>
-        //<p> {{showDate | date: 'medium'}} </p>
-        //<ul>
-        //    <li *ngFor="let carPart of carParts">
-        //        <h2>{{carPart.name | uppercase}}</h2>
-        //        <p class="description">{{carPart.description}}</p>
-        //        <p class="price">{{carPart.price | currency: 'EUR':true}}</p>
-        //        <p *ngIf="carPart.inStock > 0">{{carPart.inStock}} in Stock</p>
-        //        <p *ngIf="carPart.inStock === 0">Out of Stock</p>
-        //        <p>Date available: {{carPart.today | date: 'medium'}}</p>
-        //    </li>
-        //</ul>`,
-        //styles: [`
-        //    .description {
-        //        color: #444;
-        //        font-size: small;
-        //    }
-        //    .price {
-        //        font-weight: bold;
-        //    }
-        //`]
 })
 
 // export is a keyword that tells angular this class can be used as an import somewhere else.
@@ -40,11 +19,23 @@ import { CARPARTS } from './mocks';
 export class CarPartsComponent {
     carParts: CarPart[];
 
+    //constructor(private racingDataService: RacingDataService) { }
+
     // ngOnInit is invoked after the component is constructed and is the best place to initialize property values.
     //   We could have done this in the constructor, but that'd be harder to test.
     ngOnInit() {
         this.carParts = CARPARTS;
+        //this.carParts = this.racingDataService.getCarParts();
     }
+
+    downQuantity(carPart) {
+        if (carPart.quantity != 0) carPart.quantity--;
+    }
+
+    upQuantity(carPart) {
+        if (carPart.quantity < carPart.inStock) carPart.quantity++;
+    }
+
     totalCarParts() {
         let sum = 0;
 

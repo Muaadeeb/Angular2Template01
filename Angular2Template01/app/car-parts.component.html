@@ -1,12 +1,48 @@
 ﻿<p>There are {{totalCarParts()}} total parts in stock.</p>
 <p> {{showDate | date: 'medium'}} </p>
 <ul>
-    <li *ngFor="let carPart of carParts">
-        <h2>{{carPart.name | uppercase}}</h2>
-        <p class="description">{{carPart.description}}</p>
-        <p class="price">{{carPart.price | currency: 'EUR':true}}</p>
-        <p *ngIf="carPart.inStock > 0">{{carPart.inStock}} in Stock</p>
-        <p *ngIf="carPart.inStock === 0">Out of Stock</p>
-        <p>Date available: {{carPart.today | date: 'medium'}}</p>
+    <!--class.featured is a class property binding. If true, class is added, if false, class is removed.-->
+    <li class="card" *ngFor="let carPart of carParts" [class.featured]="carPart.featured">
+    <!--<li class="card" *ngFor="let carPart of carParts">-->
+        <div class="panel-body">
+            <div class="photo">
+                <!-- [src] - this is property binding with no interpolation. The square brackets tells Angular to set
+                this DOM element property to our component propery and if the component property changes, update this. -->
+                <img [src]="carPart.image" />
+            </div>
+            <table class="product-info">
+                <tr>
+                    <td>
+                        <h2>{{carPart.name | uppercase}}</h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p class="description">{{carPart.description}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="price">{{carPart.price | currency: 'EUR':true}}</td>
+                    <td>
+                        <div class="select-quantity">
+                            <button class="decrease" (click)="downQuantity(carPart)">-</button>
+                            <input class="number" type="text" [(ngModel)]="carPart.quantity"/>
+                            {{carPart.quantity}}
+                            <button class="increase" (click)="upQuantity(carPart)">+</button>
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td *ngIf="carPart.inStock > 0">{{carPart.inStock}} in Stock</td>
+                    <td *ngIf="carPart.inStock === 0">Out of Stock</td>
+                </tr>
+                <tr>
+                    <td> Date available: {{carPart.today | date: 'medium'}}</td>
+                </tr>
+            </table>
+
+        </div>
     </li>
 </ul>

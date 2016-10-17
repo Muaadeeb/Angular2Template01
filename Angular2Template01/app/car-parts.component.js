@@ -14,14 +14,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var mocks_1 = require('./mocks');
+//import { RacingDataService } from './racing-data.service';
 var CarPartsComponent = (function () {
     function CarPartsComponent() {
         this.showDate = Date.now();
     }
+    //constructor(private racingDataService: RacingDataService) { }
     // ngOnInit is invoked after the component is constructed and is the best place to initialize property values.
     //   We could have done this in the constructor, but that'd be harder to test.
     CarPartsComponent.prototype.ngOnInit = function () {
         this.carParts = mocks_1.CARPARTS;
+        //this.carParts = this.racingDataService.getCarParts();
+    };
+    CarPartsComponent.prototype.downQuantity = function (carPart) {
+        if (carPart.quantity != 0)
+            carPart.quantity--;
+    };
+    CarPartsComponent.prototype.upQuantity = function (carPart) {
+        if (carPart.quantity < carPart.inStock)
+            carPart.quantity++;
     };
     CarPartsComponent.prototype.totalCarParts = function () {
         var sum = 0;

@@ -6,7 +6,10 @@ exports.CARPARTS = [{
         "description": "These tires are the very best",
         "inStock": 5,
         "price": 4.99,
-        "today": new Date('2016-10-01T12:00:00')
+        "today": new Date('2016-10-01T12:00:00'),
+        "image": "/images/tire.png",
+        "featured": false,
+        "quantity": 0
     },
     {
         "id": 2,
@@ -14,7 +17,10 @@ exports.CARPARTS = [{
         "description": "Shocks made from kryptonite",
         "inStock": 4,
         "price": 9.99,
-        "today": new Date('2016-10-05T12:00:00')
+        "today": new Date('2016-10-05T12:00:00'),
+        "image": "/images/shocks.png",
+        "featured": true,
+        "quantity": 0
     },
     {
         "id": 3,
@@ -22,6 +28,9 @@ exports.CARPARTS = [{
         "description": "Super soft seats for a smooth ride",
         "inStock": 0,
         "price": 24.99,
-        "today": new Date('2016-10-10T12:00:00')
+        "today": new Date('2016-10-10T12:00:00'),
+        "image": "/images/seats.png",
+        "featured": false,
+        "quantity": 0
     }];
 //# sourceMappingURL=mocks.js.map

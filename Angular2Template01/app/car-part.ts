@@ -6,4 +6,7 @@ export class CarPart {
     inStock: number;
     price: number;
     today: Date;
+    image: string;
+    featured: boolean;
+    quantity: number;
 }
