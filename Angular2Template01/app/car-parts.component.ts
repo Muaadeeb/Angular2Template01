@@ -6,6 +6,7 @@
 import { Component } from '@angular/core';
 import { CarPart } from './car-part';
 import { CARPARTS } from './mocks';
+import { RacingDataService } from './racing-data-service';
 
 @Component({
     selector: 'car-parts',
@@ -18,11 +19,13 @@ import { CARPARTS } from './mocks';
 export class CarPartsComponent {
     carParts: CarPart[];
 
-    
+    constructor(private racingDataService: RacingDataService){}
+
+
     // ngOnInit is invoked after the component is constructed and is the best place to initialize property values.
     //   We could have done this in the constructor, but that'd be harder to test.
     ngOnInit() {
-        this.carParts = CARPARTS;
+        this.carParts = this.racingDataService.getCarParts();
     }
 
     upQuantity(carPart) {

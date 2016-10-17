@@ -111,6 +111,7 @@
     <TypeScriptCompile Include="app\car-part.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\mocks.ts" />
+    <TypeScriptCompile Include="app\racing-data-service.ts" />
     <TypeScriptCompile Include="typings\globals\core-js\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />

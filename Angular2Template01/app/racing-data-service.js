@@ -1,4 +1,3 @@
-// This component contains our page header.
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9,22 +8,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var mocks_1 = require('./mocks');
+// required/used for dependency injection.
 var core_1 = require('@angular/core');
-// declare the dependecy injector here at the top level so all childern will have access.
-var racing_data_service_1 = require('./racing-data-service');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Ultra Racing';
+// now use the declared dependency  injector.
+var RacingDataService = (function () {
+    function RacingDataService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "<h1>{{title}}</h1>\n        <car-parts></car-parts>",
-            providers: [racing_data_service_1.RacingDataService] // Must register the dependency injector as a provider so it can be used.
-        }), 
+    RacingDataService.prototype.getCarParts = function () {
+        return mocks_1.CARPARTS;
+    };
+    RacingDataService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], RacingDataService);
+    return RacingDataService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.RacingDataService = RacingDataService;
+//# sourceMappingURL=racing-data-service.js.map
