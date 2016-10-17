@@ -22,6 +22,14 @@ var CarPartsComponent = (function () {
     CarPartsComponent.prototype.ngOnInit = function () {
         this.carParts = mocks_1.CARPARTS;
     };
+    CarPartsComponent.prototype.upQuantity = function (carPart) {
+        if (carPart.quantity < carPart.inStock)
+            carPart.quantity++;
+    };
+    CarPartsComponent.prototype.downQuantity = function (carPart) {
+        if (carPart.quantity !== 0)
+            carPart.quantity--;
+    };
     CarPartsComponent.prototype.totalCarParts = function () {
         var sum = 0;
         for (var _i = 0, _a = this.carParts; _i < _a.length; _i++) {

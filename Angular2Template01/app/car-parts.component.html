@@ -18,6 +18,15 @@
                     <td>
                         <p class="price">{{carPart.price | currency: 'EUR':true}}</p>
                     </td>
+                    
+                    <td>
+                        <div class="select-quantity">
+                            <button class="decrease" (click)="downQuantity(carPart)">-</button>
+                            {{carPart.quantity}}
+                            <button class="increase" (click)="upQuantity(carPart)">+</button>
+                        </div>
+                    </td>
+
                 </tr>
             </table>
         </div>

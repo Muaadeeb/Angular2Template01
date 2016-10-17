@@ -18,11 +18,21 @@ import { CARPARTS } from './mocks';
 export class CarPartsComponent {
     carParts: CarPart[];
 
+    
     // ngOnInit is invoked after the component is constructed and is the best place to initialize property values.
     //   We could have done this in the constructor, but that'd be harder to test.
     ngOnInit() {
         this.carParts = CARPARTS;
     }
+
+    upQuantity(carPart) {
+        if (carPart.quantity < carPart.inStock) carPart.quantity++;
+    }
+
+    downQuantity(carPart) {
+        if (carPart.quantity !== 0) carPart.quantity--;
+    }
+
     totalCarParts() {
         let sum = 0;
 
