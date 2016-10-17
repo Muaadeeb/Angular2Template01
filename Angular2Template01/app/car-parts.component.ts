@@ -11,28 +11,6 @@ import { CARPARTS } from './mocks';
     selector: 'car-parts',
     templateUrl: 'app/car-parts.component.html',
     styleUrls: ['app/car-parts.component.css']
-    //template: `
-        //<p>There are {{totalCarParts()}} total parts in stock.</p>
-        //<p> {{showDate | date: 'medium'}} </p>
-        //<ul>
-        //    <li *ngFor="let carPart of carParts">
-        //        <h2>{{carPart.name | uppercase}}</h2>
-        //        <p class="description">{{carPart.description}}</p>
-        //        <p class="price">{{carPart.price | currency: 'EUR':true}}</p>
-        //        <p *ngIf="carPart.inStock > 0">{{carPart.inStock}} in Stock</p>
-        //        <p *ngIf="carPart.inStock === 0">Out of Stock</p>
-        //        <p>Date available: {{carPart.today | date: 'medium'}}</p>
-        //    </li>
-        //</ul>`,
-        //styles: [`
-        //    .description {
-        //        color: #444;
-        //        font-size: small;
-        //    }
-        //    .price {
-        //        font-weight: bold;
-        //    }
-        //`]
 })
 
 // export is a keyword that tells angular this class can be used as an import somewhere else.
@@ -54,5 +32,4 @@ export class CarPartsComponent {
 
         return sum;
     }
-    showDate = Date.now();
 }

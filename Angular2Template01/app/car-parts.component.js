@@ -16,7 +16,6 @@ var core_1 = require('@angular/core');
 var mocks_1 = require('./mocks');
 var CarPartsComponent = (function () {
     function CarPartsComponent() {
-        this.showDate = Date.now();
     }
     // ngOnInit is invoked after the component is constructed and is the best place to initialize property values.
     //   We could have done this in the constructor, but that'd be harder to test.
