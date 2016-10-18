@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 import { CarPart } from './car-part';
 import { CARPARTS } from './mocks';
 import { RacingDataService } from './racing-data-service';
+import 'rxjs/add/operator/';
 
 @Component({
     selector: 'car-parts',
@@ -25,7 +26,7 @@ export class CarPartsComponent {
     // ngOnInit is invoked after the component is constructed and is the best place to initialize property values.
     //   We could have done this in the constructor, but that'd be harder to test.
     ngOnInit() {
-        this.carParts = this.racingDataService.getCarParts();
+        this.carParts = ((this.racingDataService.getCarParts().subscribe(carParts => this.carParts = carParts)) as any);
     }
 
     upQuantity(carPart) {
@@ -39,10 +40,12 @@ export class CarPartsComponent {
     totalCarParts() {
         let sum = 0;
 
-        for (let carPart of this.carParts) {
-            sum += carPart.inStock;
+        if (Array.isArray(this.carParts)) {
+            for (let carPart of this.carParts) {
+                sum += carPart.inStock;
+            }
         }
 
-        return sum;
+    return sum;
     }
 }

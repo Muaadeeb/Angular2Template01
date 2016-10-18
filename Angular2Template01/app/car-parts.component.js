@@ -14,6 +14,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var racing_data_service_1 = require('./racing-data-service');
+require('rxjs/add/operator/');
 var CarPartsComponent = (function () {
     function CarPartsComponent(racingDataService) {
         this.racingDataService = racingDataService;
@@ -21,7 +22,8 @@ var CarPartsComponent = (function () {
     // ngOnInit is invoked after the component is constructed and is the best place to initialize property values.
     //   We could have done this in the constructor, but that'd be harder to test.
     CarPartsComponent.prototype.ngOnInit = function () {
-        this.carParts = this.racingDataService.getCarParts();
+        var _this = this;
+        this.carParts = (this.racingDataService.getCarParts().subscribe(function (carParts) { return _this.carParts = carParts; }));
     };
     CarPartsComponent.prototype.upQuantity = function (carPart) {
         if (carPart.quantity < carPart.inStock)
@@ -33,9 +35,11 @@ var CarPartsComponent = (function () {
     };
     CarPartsComponent.prototype.totalCarParts = function () {
         var sum = 0;
-        for (var _i = 0, _a = this.carParts; _i < _a.length; _i++) {
-            var carPart = _a[_i];
-            sum += carPart.inStock;
+        if (Array.isArray(this.carParts)) {
+            for (var _i = 0, _a = this.carParts; _i < _a.length; _i++) {
+                var carPart = _a[_i];
+                sum += carPart.inStock;
+            }
         }
         return sum;
     };

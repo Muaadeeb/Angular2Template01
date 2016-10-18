@@ -12,6 +12,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 // declare the dependecy injector here at the top level so all childern will have access.
 var racing_data_service_1 = require('./racing-data-service');
+var http_1 = require('@angular/http');
+require('./rxjs-operators');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Ultra Racing';
@@ -20,7 +22,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             template: "<h1>{{title}}</h1>\n        <car-parts></car-parts>",
-            providers: [racing_data_service_1.RacingDataService] // Must register the dependency injector as a provider so it can be used.
+            providers: [racing_data_service_1.RacingDataService, http_1.HttpModule] // Must register the dependency injector as a provider so it can be used.
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
